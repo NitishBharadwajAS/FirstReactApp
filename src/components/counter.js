@@ -14,7 +14,20 @@ class Counter extends Component {
   //     this.setState({ value: this.props.count.value + 1 });
   //   };
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log("Previous Props ", prevProps);
+    console.log("Previous State ", prevState);
+    if (prevProps === prevState) {
+      console.log("Hi");
+    }
+  }
+
+  componentWillUnmount() {
+    console.log("Counter-Unmounted");
+  }
+
   render() {
+    console.log("Counter-Rendered");
     return (
       <div>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
